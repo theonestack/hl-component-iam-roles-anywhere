@@ -1,0 +1,88 @@
+test_metadata:
+  type: config
+  name: iam_roles_anywhere
+
+trust_anchors:
+  Base2Local:
+    name: ${EnvironmentName}-base2-local
+    enabled: true
+    source:
+      source_type: CERTIFICATE_BUNDLE
+      source_data:
+        x509_certificate_data: '{{resolve:ssm:/${EnvironmentName}/iam-roles-anywhere/base2.local}}'
+  EngineeringBase2Local:
+    name: ${EnvironmentName}-engineering-base2-local
+    enabled: true
+    source:
+      source_type: CERTIFICATE_BUNDLE
+      source_data:
+        x509_certificate_data: |
+            -----BEGIN CERTIFICATE-----
+            MIIDSzCCAjOgAwIBAgIUeS6b5JBYokYEGxAXqNetHC/eRu8wDQYJKoZIhvcNAQEL
+            BQAwFjEUMBIGA1UEAwwLYmFzZTIubG9jYWwwHhcNMjUwMTI4MDIyMzA4WhcNMzUw
+            MTI2MDIyMzA4WjAWMRQwEgYDVQQDDAtiYXNlMi5sb2NhbDCCASIwDQYJKoZIhvcN
+            AQEBBQADggEPADCCAQoCggEBAKy8Nkn6pRgn4jHJ5hvP304LnkJaSAuFEW2gHteo
+            BmR8cfmmDCcEugVoyvvtRpI2dbnf4me5oeagqpHJQO9np6xomRi0Eo2OZMpxot0g
+            BkudlQcCV30tSS3ZhY/1bzr7Xv2rfWgPT18KHetdVWPlibP9tdkwS8wqrxDS9Rjw
+            arr6olWO2P9GjIewfHLJgLhe8WfMr61C22vwq4IA/TzpgIFJnDWPX6GC4jMAivZp
+            nh2TCA+IJYNEBMquZPJSa6RVlD/xqMfq3JiC06hpG/VaKp029hEL5e2v6EEwQQcd
+            fMX9PWc1KxfGd8Yt+ptg6gx8h1/5wKP3w1/OCVL4dkuKCoECAwEAAaOBkDCBjTAM
+            BgNVHRMEBTADAQH/MB0GA1UdDgQWBBS3NiKC1mqDMVBaANZJdmW4xMCfQTBRBgNV
+            HSMESjBIgBS3NiKC1mqDMVBaANZJdmW4xMCfQaEapBgwFjEUMBIGA1UEAwwLYmFz
+            ZTIubG9jYWyCFHkum+SQWKJGBBsQF6jXrRwv3kbvMAsGA1UdDwQEAwIBBjANBgkq
+            hkiG9w0BAQsFAAOCAQEAC9FPplk39lRgt8W6yHMEWep19wWPl40eaAEgR98jA27c
+            SLrXtaTGMXv+srvctNyK8WRVdxIMqmxEHFMs/sKYuZjXcPt72M8jx0ri1yMTPqrD
+            LM8Hp4TnhNGaNOXXm6Us9Xk8AAUdOD0Jhmqo2z7fXlMkn1BAufDiSKxRPG+lipDX
+            SkxNBfQeHEt9EjbyTkzgC8qc81Oo6Xx2/TwroBoqqficmmkHiLOUJcw1/+gKOswK
+            c/DrYGGXJ1EkzZHCodJ3+HcnxmtvsZzSNbHBjgwUnfBQJX3hKFkSlbjRP8g1ICv1
+            9wakMyMmuLDc5CX0pM5i061M5Kz8N1Sc3CQ+u5Tg8w==
+            -----END CERTIFICATE-----
+            -----BEGIN CERTIFICATE-----
+            MIIDUzCCAjugAwIBAgIQGssWfMUQB6mTT8OcBaqkFzANBgkqhkiG9w0BAQsFADAW
+            MRQwEgYDVQQDDAtiYXNlMi5sb2NhbDAeFw0yNTAxMjgwNDI4MDFaFw0yNzA1MDMw
+            NDI4MDFaMCIxIDAeBgNVBAMMF2VuZ2luZWVyaW5nLmJhc2UyLmxvY2FsMIIBIjAN
+            BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwhPAOuL9TIcgYC85+SEG0Huap9yt
+            XCJHu5lc0W79UhdmQTWnXk5OzxmTeIjbUlkk7Uf/uDXI6n+nt5oB+coVWc8Mphic
+            1B4g2Bf0hSKGbRkSVzRlSeYUIuRAcYNpP7opoep9Fk7HMaG1ue90bsUcW1DhFxR8
+            uJNGpQaC39HFYyIfpwiQlFWirMUtUk4J/+Y3PcIBgSOhLBO3CTMt/N3sIefwRgw5
+            XbdNi8K1ko+WS6J81G6fA3hI0GMUcDklY4XdHDX65wA4QOZUWl38Hwyg50j9jCmb
+            M5NsUmYh3vqrLwQhMt0leuaUlAbrIrTAzYtMbrQKrA7HXCcB5k+HWyXFAwIDAQAB
+            o4GQMIGNMAwGA1UdEwQFMAMBAf8wHQYDVR0OBBYEFFsWbeUdQdFEBSvCTGTmfKtD
+            zfHIMFEGA1UdIwRKMEiAFLc2IoLWaoMxUFoA1kl2ZbjEwJ9BoRqkGDAWMRQwEgYD
+            VQQDDAtiYXNlMi5sb2NhbIIUeS6b5JBYokYEGxAXqNetHC/eRu8wCwYDVR0PBAQD
+            AgEGMA0GCSqGSIb3DQEBCwUAA4IBAQAQ2SAYaRFd4TGHukvVhUYYlNeRCfNx7ZBy
+            5+UH3kboTN9KHET8XeT/MO7999+UzhgOHfv75ROlouNnM4HXbPdpxyZJthpm19c3
+            KKyUs9n7yl1wNmrDYEoIyZu26/u2bFihfgfUTPSVMbhuplW5v/aFUjaasaGvD5vM
+            JM6PjWZv87NX1wGsAvStU3qj7Jg6lrCcIqZrgP+Sqcm2CflRytDpembMVDSMyURb
+            bV/KfD76WMUoFC0M+Cqiz7CA+Rp5z4iL8PvWwi7661ext3ki4RrAREiY8dr87p8M
+            j9SXEb/OyYIUqyavu4a36A/wCsgzMQrm6xMQsNYnIhwsA9Axb1cG
+            -----END CERTIFICATE-----
+
+roles:
+  TestRole:
+    x509_certificate_subject_cn: user1.engineering.base2.local
+    trust_anchor: EngineeringBase2Local
+    policies:
+      s3:
+        action:
+        - s3:List*
+        - s3:Get*
+        resource: "*"
+  AnotherTestRole:
+    x509_certificate_subject_cn: user1.base2.local
+    trust_anchor: Base2Local
+    policies:
+      ec2:
+        action:
+        - ec2:Describe*
+        resource: "*"
+
+profiles:
+  DefaultProfile:
+    name: ${EnvironmentName}-default-profile
+    accept_role_session_name: false
+    enabled: true
+    duration_seconds: 3600
+    roles:
+      - TestRole
+      - AnotherTestRole
